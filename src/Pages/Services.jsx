@@ -8,17 +8,93 @@ import AttachmentIcon from "@material-ui/icons/Attachment";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import LocationOnOutlinedIcon from "@material-ui/icons/LocationOnOutlined";
 import BodyImage from "../imges/body.png";
+import BodyImageRes from "../imges/resBody.png";
 import MapImage from "../imges/map.jpeg";
 import Footer from "../layout/Footer";
 const useStyles = makeStyles((theme) => ({
-  container: {
-    display: "flex",
-    flexWrap: "wrap",
-  },
   textField: {
     marginLeft: theme.spacing(1),
     marginRight: theme.spacing(1),
     width: 200,
+  },
+  withoutRes: {
+    [theme.breakpoints.down("sm")]: {
+      display: "none",
+    },
+  },
+  withRes: {
+    [theme.breakpoints.up("md")]: {
+      display: "none",
+    },
+  },
+  container: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  container_wrapper: {
+    display: "flex",
+    margin: "4rem 0rem",
+    [theme.breakpoints.down("sm")]: {
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+    },
+  },
+  container_wrapper_inner: {
+    width: "40rem",
+    marginRight: "7rem",
+  },
+  container_wrapper_inner_wrap: {
+    fontSize: "2.7rem",
+    paddingBottom: "3px",
+    display: "flex",
+    justifyContent: "flex-start",
+    alignItems: "center",
+  },
+  input_label: {
+    fontSize: "1.5rem",
+    display: "flex",
+    justifyContent: "flex-start",
+    alignItems: "center",
+    color: "#444040bd",
+  },
+  autocomplete_container: {
+    width: "40rem",
+    [theme.breakpoints.down("sm")]: {
+      marginRight: "7rem",
+      marginTop: "1rem",
+    },
+  },
+  dateContainer: {
+    width: "40rem",
+    [theme.breakpoints.down("md")]: {
+      marginRight: "7rem",
+      marginTop: "3rem",
+      marginBottom: "5rem",
+    },
+  },
+  budget: {
+    width: "40rem",
+    marginRight: "7rem",
+    [theme.breakpoints.down("md")]: {
+      // marginLeft:'4rem',
+      // marginTop:'3rem',
+      // marginBottom:'5rem'
+    },
+  },
+  submitBtn: {
+    display: "none",
+    [theme.breakpoints.down("md")]: {
+      display: "block",
+    },
+  },
+  submitBtnWithoutRes: {
+    display: "flex",
+    justifyContent: "flex-end",
+    [theme.breakpoints.down("md")]: {
+      display: "none",
+    },
   },
 }));
 const Services = () => {
@@ -33,54 +109,33 @@ const Services = () => {
           marginBottom: "1rem",
         }}
       ></div> */}
-      <img src={BodyImage} alt="not" style={{ width: "100%" }} />
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          // margin: "0rem 20rem 0rem 20rem",
-          alignItems: "center",
-        }}
-      >
+      <img
+        className={classes.withoutRes}
+        src={BodyImage}
+        alt="not"
+        style={{ width: "100%" }}
+      />
+      <img
+        className={classes.withRes}
+        src={BodyImageRes}
+        alt="not"
+        style={{ width: "100%" }}
+      />
+      <div className={classes.container}>
         <div>
-          <div
-            style={{
-              display: "flex",
-              margin: "4rem 0rem",
-            }}
-          >
-            <div style={{ width: "300px", marginRight: "7rem" }}>
-              <div
-                style={{
-                  fontSize: "25px",
-                  paddingBottom: "3px",
-                  display: "flex",
-                  justifyContent: "flex-start",
-                  alignItems: "center",
-                }}
-              >
+          <div className={classes.container_wrapper}>
+            <div className={classes.container_wrapper_inner}>
+              <div className={classes.container_wrapper_inner_wrap}>
                 Select Category
               </div>
-              <div
-                style={{
-                  fontSize: "13px",
-                  display: "flex",
-                  justifyContent: "flex-start",
-                  alignItems: "center",
-                  color: "#444040bd",
-                }}
-              >
+              <div className={classes.input_label} style={{}}>
                 Select the category which suits you best!
               </div>
             </div>
-            <div style={{ width: "300px", margin: "" }}>
+            <div className={classes.autocomplete_container}>
               <Autocomplete
                 size="small"
                 options={["Gold", "Siver", "Iron"]}
-                // value={formik.values.state}
-                // onChange={(event, newValue) => {
-                //   formik.setFieldValue("state", newValue);
-                // }}
                 PaperComponent={({ children }) => (
                   <Paper style={{ background: "#f7f6f0", color: "black" }}>
                     {children}
@@ -91,10 +146,6 @@ const Services = () => {
                     {...params}
                     label="Select Services"
                     name="state"
-                    // value={formik.values.state}
-                    // onChange={formik.handleChange}
-                    // error={formik.touched.state && Boolean(formik.errors.state)}
-                    // helperText={formik.touched.state && formik.errors.state}
                     variant="outlined"
                   />
                 )}
@@ -102,37 +153,16 @@ const Services = () => {
             </div>
           </div>
           <Divider variant="fullWidth" />
-          <div
-            style={{
-              display: "flex",
-              margin: "4rem 0rem",
-            }}
-          >
-            <div style={{ width: "300px", marginRight: "7rem" }}>
-              <div
-                style={{
-                  fontSize: "25px",
-                  paddingBottom: "3px",
-                  display: "flex",
-                  justifyContent: "flex-start",
-                  alignItems: "center",
-                }}
-              >
+          <div className={classes.container_wrapper}>
+            <div className={classes.container_wrapper_inner}>
+              <div className={classes.container_wrapper_inner_wrap}>
                 Select Sub-Category
               </div>
-              <div
-                style={{
-                  fontSize: "13px",
-                  display: "flex",
-                  justifyContent: "flex-start",
-                  alignItems: "center",
-                  color: "#444040bd",
-                }}
-              >
+              <div className={classes.input_label}>
                 Select the category which suits you best!
               </div>
             </div>
-            <div style={{ width: "300px", margin: "" }}>
+            <div className={classes.autocomplete_container}>
               <Autocomplete
                 size="small"
                 options={["Ring", "Bala", "Pendent"]}
@@ -161,16 +191,11 @@ const Services = () => {
             </div>
           </div>
           <Divider variant="fullWidth" />
-          <div
-            style={{
-              display: "flex",
-              margin: "4rem 0rem",
-            }}
-          >
-            <div style={{ width: "300px", marginRight: "7rem" }}>
+          <div className={classes.container_wrapper}>
+            <div className={classes.container_wrapper_inner}>
               <div
                 style={{
-                  fontSize: "25px",
+                  fontSize: "2.7rem",
                   paddingBottom: "3px",
                   display: "flex",
                   justifyContent: "flex-start",
@@ -181,7 +206,7 @@ const Services = () => {
               </div>
               <div
                 style={{
-                  fontSize: "13px",
+                  fontSize: "1.5rem",
                   alignItems: "center",
                   color: "black",
                   marginTop: "10px",
@@ -214,8 +239,8 @@ const Services = () => {
                     src={MapImage}
                     alt="not"
                     style={{
-                      width: "285px",
-                      height: "150px",
+                      width: "40rem",
+                      height: "200px",
                       border: "1px solid black",
                       marginTop: "1rem",
                       borderRadius: "20px",
@@ -224,10 +249,10 @@ const Services = () => {
                 </div>
               </div>
             </div>
-            <div style={{ width: "300px", margin: "" }}>
+            <div style={{ margin: "" }} className={classes.dateContainer}>
               <div
                 style={{
-                  fontSize: "25px",
+                  fontSize: "2.7rem",
                   paddingBottom: "3px",
                   display: "flex",
                   justifyContent: "flex-start",
@@ -238,7 +263,7 @@ const Services = () => {
               </div>
               <div
                 style={{
-                  fontSize: "13px",
+                  fontSize: "1.5rem",
                   alignItems: "center",
                   color: "black",
                   marginTop: "10px",
@@ -260,16 +285,11 @@ const Services = () => {
               </div>
             </div>
           </div>
-          <div
-            style={{
-              display: "flex",
-              margin: "4rem 0rem",
-            }}
-          >
-            <div style={{ width: "350px", marginRight: "7rem" }}>
+          <div className={classes.container_wrapper}>
+            <div className={classes.container_wrapper_inner}>
               <div
                 style={{
-                  fontSize: "25px",
+                  fontSize: "2.7rem",
                   paddingBottom: "3px",
                   display: "flex",
                   justifyContent: "flex-start",
@@ -280,7 +300,7 @@ const Services = () => {
               </div>
               <div
                 style={{
-                  fontSize: "13px",
+                  fontSize: "1.5rem",
                   alignItems: "center",
                   color: "black",
                   marginTop: "10px",
@@ -322,10 +342,10 @@ const Services = () => {
               margin: "4rem 0rem",
             }}
           >
-            <div style={{ width: "350px", marginRight: "7rem" }}>
+            <div className={classes.budget} style={{}}>
               <div
                 style={{
-                  fontSize: "25px",
+                  fontSize: "2.7rem",
                   paddingBottom: "3px",
                   display: "flex",
                   justifyContent: "flex-start",
@@ -336,7 +356,7 @@ const Services = () => {
               </div>
               <div
                 style={{
-                  fontSize: "13px",
+                  fontSize: "1.5rem",
                   alignItems: "center",
                   color: "black",
                   marginTop: "10px",
@@ -359,7 +379,7 @@ const Services = () => {
                     // labelWidth={60}
                   />
                 </div>
-                <div style={{ display: "flex", justifyContent: "flex-end" }}>
+                <div className={classes.submitBtnWithoutRes} style={{}}>
                   <Button
                     variant="contained"
                     size="small"
@@ -376,6 +396,22 @@ const Services = () => {
                 </div>
               </div>
             </div>
+          </div>
+          <div className={classes.submitBtn}>
+            <Button
+              variant="contained"
+              color="primary"
+              size="large"
+              style={{
+                marginTop: "1rem",
+                marginBottom: "1rem",
+                width: "40rem",
+                padding: "2rem",
+                borderRadius: "15px",
+              }}
+            >
+              Submit
+            </Button>
           </div>
         </div>
       </div>
