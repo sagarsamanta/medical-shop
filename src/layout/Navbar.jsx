@@ -1,26 +1,23 @@
 import React, { useState } from "react";
-import Analytics from "../Pages/Analytics";
-import Dashboard from "../Pages/Dashboard";
-import Earnings from "../Pages/Earnings";
-import Gigs from "../Pages/Gigs";
-import Message from "../Pages/Message";
+import Services from "../Pages/Services";
+import Blog from "../Pages/Blog";
 import { makeStyles } from "@material-ui/core/styles";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
-import Orders from "../Pages/Orders";
 import { Avatar } from "@material-ui/core";
-
+import SearchIcon from "@material-ui/icons/Search";
+import MenuIcon from "@material-ui/icons/Menu";
 const useStyles = makeStyles({
   root: {
     flexGrow: 1,
   },
   tabs: {
     "& .MuiTabs-indicator": {
-      backgroundColor: "rgb(61 221 115)",
+      backgroundColor: "rgb(174 233 213)",
       height: 3,
     },
     "& .MuiTab-root.Mui-selected": {
-      color: "rgb(61 221 115)",
+      color: "rgb(45 118 94)",
     },
     "& .MuiTab-root": {
       minWidth: "100px",
@@ -49,10 +46,11 @@ const useStyles = makeStyles({
     fontWeight: "bold",
   },
   img: {
-    marginRight: "2rem",
+    marginRight: "0rem",
   },
   bodyData: {
-    backgroundColor: "#b5b0b01f",
+    // backgroundColor: "#b5b0b01f",
+    backgroundColor: "white",
     minHeight: "100vh",
   },
 });
@@ -74,54 +72,65 @@ const Navbar = () => {
       <div className={classes.container}>
         <div className={classes.left}>
           <div className={classes.logo}>fiverr</div>
-          <Tabs value={value} onChange={handleChange} className={classes.tabs}>
-            <Tab
-              label="Dashboard"
-              className={classes.tab}
-              onClick={() => handleSwitchTab(1)}
+        </div>
+        <div style={{ display: "flex", alignItems: "center",marginRight:'8rem' }}>
+          <div  style={{ display: "flex", alignItems: "center" }}>
+            <Tabs
+              value={value}
+              onChange={handleChange}
+              className={classes.tabs}
+            >
+              <Tab
+                label="Services"
+                className={classes.tab}
+                onClick={() => handleSwitchTab(1)}
+              />
+              <Tab
+                label="Blog"
+                className={classes.tab}
+                onClick={() => handleSwitchTab(2)}
+              />
+            </Tabs>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                border: "1px solid rgb(174 233 213)",
+                padding: "5px",
+                borderRadius: "10px",
+                marginRight: "1rem",
+              }}
+            >
+              <SearchIcon />
+              <input
+                placeholder="Search Services...."
+                style={{ border: "none", marginLeft: "1rem", outline: "none" }}
+              />
+            </div>
+          </div>
+
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Avatar
+              className={classes.img}
+              alt="Remy Sharp"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzHQv_th9wq3ivQ1CVk7UZRxhbPq64oQrg5Q&usqp=CAU"
             />
-            <Tab
-              label="Message"
-              className={classes.tab}
-              onClick={() => handleSwitchTab(2)}
-            />
-            <Tab
-              label="Orders"
-              className={classes.tab}
-              onClick={() => handleSwitchTab(3)}
-            />
-            <Tab
-              label="Gigs"
-              className={classes.tab}
-              onClick={() => handleSwitchTab(4)}
-            />
-            <Tab
-              label="Analytics"
-              className={classes.tab}
-              onClick={() => handleSwitchTab(5)}
-            />
-            <Tab
-              label="Earnings"
-              className={classes.tab}
-              onClick={() => handleSwitchTab(6)}
-            />
-          </Tabs>
+            <MenuIcon />
+          </div>
         </div>
 
-        <Avatar
-          className={classes.img}
-          alt="Remy Sharp"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzHQv_th9wq3ivQ1CVk7UZRxhbPq64oQrg5Q&usqp=CAU"
-        />
         {/* </Paper> */}
       </div>
       <div className={classes.bodyData}>
-        {selectedTab === 1 && <Dashboard />}
-        {selectedTab === 2 && <Message />}
-        {selectedTab === 3 && <Orders />}
-        {selectedTab === 4 && <Gigs />}
-        {selectedTab === 5 && <Analytics />}
-        {selectedTab === 6 && <Earnings />}
+        {selectedTab === 1 && <Services />}
+        {selectedTab === 2 && <Blog />}
       </div>
     </div>
   );
