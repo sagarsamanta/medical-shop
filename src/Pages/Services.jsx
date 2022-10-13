@@ -1,5 +1,5 @@
 import React from "react";
-import { TextField, Button, Paper, InputLabel } from "@material-ui/core";
+import { TextField, Button, Paper } from "@material-ui/core";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import Divider from "@material-ui/core/Divider";
 import { makeStyles } from "@material-ui/core/styles";

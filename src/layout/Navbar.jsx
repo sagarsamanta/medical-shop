@@ -7,6 +7,7 @@ import Tab from "@material-ui/core/Tab";
 import { Avatar } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import MenuIcon from "@material-ui/icons/Menu";
+import logoo from '../imges/logo.png'
 const useStyles = makeStyles({
   root: {
     flexGrow: 1,
@@ -71,7 +72,9 @@ const Navbar = () => {
     <div>
       <div className={classes.container}>
         <div className={classes.left}>
-          <div className={classes.logo}>fiverr</div>
+          <div className={classes.logo}>
+            <img src={logoo} alt="not" style={{width:'200px',height:'50px',backgroundColor:'white'}} />
+          </div>
         </div>
         <div style={{ display: "flex", alignItems: "center",marginRight:'8rem' }}>
           <div  style={{ display: "flex", alignItems: "center" }}>

@@ -2,11 +2,8 @@ import React from "react";
 import WhatsAppIcon from "@material-ui/icons/WhatsApp";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import TwitterIcon from "@material-ui/icons/Twitter";
-import Chip from "@material-ui/core/Chip";
-import SendIcon from "@material-ui/icons/Send";
 import ArrowForwardIcon from "@material-ui/icons/ArrowForward";
 const Footer = () => {
-  const handleDelete = () => {};
   return (
     <div style={{ backgroundColor: "#070724" }}>
       <div style={{ margin: "0rem 7rem", paddingTop: "2rem", width: "450px" }}>
